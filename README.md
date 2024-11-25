@@ -71,7 +71,7 @@ python Inference.py --config ./configs/fastsam/fastsam-x.yaml --weight ./weights
   msrun --worker_num=8 --local_worker_num=8 --bind_core=True --log_dir=./fastsam_log python test.py --config ./configs/fastsam/fastsam-x.yaml --weight /path_to_ckpt/WEIGHT.ckpt --is_parallel True
   ```
 ## Examples
-<img src="./examples/fastsam/segment_results/cat.jpg"  height="600">
+You can try the demo in the [MindSpore community](https://xihe.mindspore.cn/projects/Psychedelico/FastSAM-mindspore) or [Modelers community](https://modelers.cn/spaces/Phychedelico/FastSAM-MindSpore).
 
 ## Cite
 
