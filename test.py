@@ -26,7 +26,7 @@ from mindyolo.utils.utils import set_seed, get_broadcast_datetime, Synchronizer
 
 def get_parser_test(parents=None):
     parser = argparse.ArgumentParser(description="Test", parents=[parents] if parents else [])
-    parser.add_argument("--task", type=str, default="detect", choices=["detect", "segment"])
+    parser.add_argument("--task", type=str, default="segment", choices=["detect", "segment"])
     parser.add_argument("--device_target", type=str, default="Ascend", help="device target, Ascend/GPU/CPU")
     parser.add_argument("--ms_mode", type=int, default=0, help="train mode, graph/pynative")
     parser.add_argument("--ms_amp_level", type=str, default="O0", help="amp level, O0/O1/O2")
@@ -76,8 +76,8 @@ def set_default_test(args):
     ms.set_context(mode=args.ms_mode, device_target=args.device_target, max_call_depth=2000)
     if args.precision_mode is not None:
         ms.set_context(ascend_config={"precision_mode":args.precision_mode})
-    if args.ms_mode == 0:
-        ms.set_context(jit_config={"jit_level": "O2"})
+    # if args.ms_mode == 0:
+    #     ms.set_context(jit_config={"jit_level": "O2"})
     if args.device_target == "Ascend":
         ms.set_context(device_id=int(os.getenv("DEVICE_ID", 0)))
     elif args.device_target == "GPU" and args.ms_enable_graph_kernel:

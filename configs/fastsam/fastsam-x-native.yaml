@@ -1,0 +1,22 @@
+__BASE__: [
+  '/home/ma-user/work/mindyolo/configs/coco.yaml',
+  '/home/ma-user/work/mindyolo/configs/yolov8/seg/yolov8-seg-base.yaml',
+  '/home/ma-user/work/mindyolo/configs/yolov8/seg/hyp.scratch.high.seg.yaml'
+]
+
+strict_load: False
+recompute: True
+recompute_layers: 2
+conf_thres: 0.001
+per_batch_size: 16 # 16 * 8 = 128
+img_size: 1024 #2048 # image sizes
+
+
+network:
+  depth_multiple: 1.00  # scales module repeats
+  width_multiple: 1.25  # scales convolution channels
+  max_channels: 512
+  reg_max: 26
+
+loss:
+  reg_max: 26

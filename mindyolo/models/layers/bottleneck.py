@@ -78,7 +78,6 @@ class C2f(nn.Cell):
                 for _ in range(n)
             ]
         )
-
     def construct(self, x):
         y = ()
         x = self.cv1(x)

@@ -25,6 +25,7 @@ class YOLOv8Head(nn.Cell):
         self.stride = Parameter(Tensor(stride, ms.int32), requires_grad=False)
 
         c2, c3 = max((16, ch[0] // 4, self.reg_max * 4)), max(ch[0], self.nc)  # channels
+        print('c2,c3', c2,c3)
         self.cv2 = nn.CellList(
             [
                 nn.SequentialCell(
@@ -123,6 +124,7 @@ class YOLOv8SegHead(YOLOv8Head):
         self.detect = YOLOv8Head.construct
 
         c4 = max(ch[0] // 4, self.nm)
+        print('c4', c4)
         self.cv4 = nn.CellList([nn.SequentialCell(ConvNormAct(x, c4, 3), ConvNormAct(c4, c4, 3), nn.Conv2d(c4, self.nm, 1, has_bias=True)) for x in ch])
 
     def construct(self, x):

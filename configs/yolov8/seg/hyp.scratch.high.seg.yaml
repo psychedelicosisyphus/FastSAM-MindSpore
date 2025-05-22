@@ -20,6 +20,7 @@ loss:
   box: 7.5  # box loss gain
   cls: 0.5  # cls loss gain
   dfl: 1.5  # dfl loss gain
+  obj: 0
   reg_max: 16
   nm: 32
   overlap: True
